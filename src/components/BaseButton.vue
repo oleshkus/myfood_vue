@@ -2,12 +2,12 @@
 import { ref } from 'vue'
 
 const props = defineProps({
-    text: {
-        type: String
-    },
-    outline: {
+    hovered: {
         type: Boolean,
         default: false
+    },
+    text: {
+        type: String
     },
     color: {
         type: String,
@@ -44,10 +44,9 @@ const props = defineProps({
             'rounded-lg',
             'text-md',
             active ? 'bg-opacity-10' : 'bg-opacity-0',
-            outline ? 'border-2' : 'border-0',
             {
                 'px-3 py-1': size === 'narrow',
-                'px-6 py-3': size === 'normal',
+                'px-5 py-3': size === 'normal',
                 'w-200': size === 'fixed',
                 'px-4 py-3': !text,
                 'bg-opacity-10': active
@@ -55,6 +54,7 @@ const props = defineProps({
         ]"
         class="hover:bg-opacity-10"
         :type="$props.type"
+        @hover="hovered = !hovered"
     >
         <i
             v-if="icon"

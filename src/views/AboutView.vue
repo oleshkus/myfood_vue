@@ -1,9 +1,22 @@
-<script setup lang="ts">
-import BaseButton from '../components/BaseButton.vue'
+<script>
+import BaseButton from '@/components/BaseButton.vue'
+import FormAuthorization from '@/components/FormAuthorization.vue'
+import BaseModal from '@/components/BaseModal.vue'
+export default {
+    components: {
+        BaseModal,
+        BaseButton,
+        FormAuthorization
+    }
+}
 </script>
 <template>
     <div class="about">
-        <h1>This is an about page</h1>
+        <base-modal title="Создание модального окна">
+            <form-authorization />
+        </base-modal>
+
+        <h1 class="bg-amber-600 rounded-full p-5 text-white text-2xl">This is an about page</h1>
         <base-button
             type="submit"
             text="Конфиденциальность"
@@ -19,8 +32,7 @@ import BaseButton from '../components/BaseButton.vue'
                 color="text-blue-400"
                 background-color="bg-blue-400"
                 icon="fa-solid fa-magnifying-glass"
-                size="normal"
-                active
+                size="narrow"
             />
             <base-button
                 type="submit"
